@@ -16,16 +16,15 @@ describe Uploader::Route do
     it { should_not be_protected }
   end
 
+  context 'status/active' do
+    subject { Uploader::Route.new('PATH_INFO' => '/status/active') }
+    its(:type) { should == :status_active }
+    it { should_not be_protected }
+  end
+
   context 'upload' do
     subject { Uploader::Route.new('PATH_INFO' => '/1234') }
     its(:type) { should == :upload }
-    its(:upload_id) { should == 1234 }
-    it { should be_protected }
-  end
-
-  context 'progress' do
-    subject { Uploader::Route.new('PATH_INFO' => '/1234/progress') }
-    its(:type) { :progress }
     its(:upload_id) { should == 1234 }
     it { should be_protected }
   end

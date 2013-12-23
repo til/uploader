@@ -70,6 +70,8 @@ module Uploader
         [200, {'Content-Type' => 'text/html'}, renderer.root]
       when [:get, :status]
         [200, {'Content-Type' => 'text/html'}, renderer.status(started_at: started_at, registry: registry)]
+      when [:get, :status_active]
+        [200, {'Content-Type' => 'text/plain'}, registry.active_upload_count]
       when [:get, :upload]
         [200, {'Content-Type' => 'text/html'}, renderer.upload(
             upload_id: route.upload_id, token: request.token, return_to: request.return_to)]

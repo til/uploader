@@ -16,7 +16,7 @@ class Uploader::Route
         :upload
       end
     elsif path == 'status'
-      :status
+      second == 'active' ? :status_active : :status
     end
   end
 

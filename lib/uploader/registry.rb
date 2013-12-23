@@ -15,5 +15,9 @@ module Uploader
     def uploads
       @entries.values
     end
+
+    def active_upload_count
+      @entries.values.select(&:in_progress?).size
+    end
   end
 end
