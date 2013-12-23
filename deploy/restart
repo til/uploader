@@ -1,0 +1,3 @@
+#!/bin/sh
+echo "Not restarting server - do it manually after making sure there are no active uploads"
+#/home/uploader/start_uploader.sh

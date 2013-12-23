@@ -1,0 +1,21 @@
+<html>
+  <head>
+    <script src='/assets/jquery-1.10.2.min.js'></script>
+    <script>
+      jQuery(document).ready(function() {
+        jQuery('form').on('submit', function() {
+          window.parent.jQuery(window.parent.document).trigger('upload:started');
+        });
+      });
+    </script>
+    <style>
+      form { padding: 0.5em; }
+    </style>
+  </head>
+  <body>
+    <form action='/<%= upload_id %>?token=<%= token %>' enctype='multipart/form-data' method='POST'>
+    <p><input type='file' name='file' accept='.flac,.m3u,audio/*''></p>
+    <p><input type='submit'></p>
+    </form>
+  </body>
+</html>

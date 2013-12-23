@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <title>Upload</title>
+
+    <script src='/assets/jquery-1.10.2.min.js'></script>
+    <script src='/assets/application.js'></script>
+    <style>
+      #progress {
+        display: none;
+      }
+      #progress-bar {
+        border: 1px solid black;
+      }
+      #progress-bar-fill {
+        height: 2em;
+        background-color: black;
+        width: 0%;
+      }
+      #return-to {
+        background: #e5e5e5;
+        padding: 10px 4px;
+        display: none;
+      }
+      iframe {
+        width: 100%;
+        border: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>Upload a file</h1>
+    <div id='progress'>
+      <div id='progress-bar'><div id='progress-bar-fill'></div></div>
+      <p>0%</p>
+    </div>
+    <iframe src='/<%= upload_id %>/form?token=<%= token %>'></iframe>
+    <div id='return-to'>
+      <a href='<%= return_to %>'>back</a>
+    </div>
+  </body>
+</html>

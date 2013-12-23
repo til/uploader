@@ -1,0 +1,19 @@
+<html>
+  <body>
+  <h1>Status</h1>
+  <p>Up since: <%= started_at %></p>
+  <h2>Uploads</h2>
+  <% if registry.uploads.any? %>
+    <% registry.uploads.each do |upload| %>
+      <dl>
+        <dt>ID</dt>
+        <dd><%= upload.id %></dd>
+        <dt>Progress</dt>
+        <dd><%= upload.uploaded_size %> of <%= upload.content_length %> bytes (<%= (upload.percentage * 100).round %>%)</dd>
+      </dl>
+    <% end %>
+  <% else %>
+    <p>None.</p>
+  <% end %>
+  </body>
+</html>
